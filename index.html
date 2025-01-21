@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <div class="mainz">
+
+    <div class="main-left">
+
+      <div class="container my-sm-3">
+        <div class="d-flex align-items-center justify-content-between">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <img src="assets/img/logo.png" alt="">
+            <span class="d-none d-lg-block">Eyebey</span>
+          </a>
+        </div>
+        <h1 class="login_head">Admin Login</h1>
+
+        <div class="form_container">
+          <form>
+            <br />
+            <label for="email" class="radiant_label">Email</label>
+            <input type="email" id="email" name="email" class="radiant_input" placeholder="Email">
+            <br />
+            <br />
+            <label for="password" class="radiant_label">Password</label>
+            <div class="password-container">
+              <input type="password" id="password" name="password" class="radiant_input" placeholder="Password">
+              <span id="togglePassword" class="toggle-password">
+                <i class="fas fa-eye"></i>
+              </span>
+            </div>
+            <br />
+
+            <span>Forgot Password</span>
+            <a href="/dashboard.html">
+              <button type="button" class="log_in_btn">LOG IN</button>
+            </a>
+          </form>
+
+        </div>
+
+        <script>
+          document.getElementById('togglePassword').addEventListener('click', function () {
+            const passwordField = document.getElementById('password');
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
+
+            const icon = this.querySelector('i');
+            if (type === 'password') {
+              icon.classList.remove('fa-eye-slash');
+              icon.classList.add('fa-eye');
+            } else {
+              icon.classList.remove('fa-eye');
+              icon.classList.add('fa-eye-slash');
+            }
+          });
+        </script>
+      </div>
+    </div>
+    <div class="main-right" id="main-right">
+
+      <div class="slider" id="slider">
+        <div class="slides" id="slides">
+          <!-- <div class="slide"
+            style="background-image: url('https://wallpapers.com/images/featured/laptop-murjp1nk4lp1idlt.jpg');"></div>
+          <div class="slide"
+            style="background-image: url('https://images.unsplash.com/photo-1581472723648-909f4851d4ae?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y29tcHV0ZXIlMjBkZXNpZ258ZW58MHx8MHx8fDA%3D');">
+          </div> -->
+          <div class="slide" style="background-image: url('https://husandhem.co.uk/cdn/shop/files/48487.jpg?v=1726350980&width=1000');"></div>
+          <!-- <div class="slide" style="background-image: url('https://images6.alphacoders.com/991/991781.jpg');"></div>
+          <div class="slide"
+            style="background-image: url('https://p1.pxfuel.com/preview/715/222/467/laptop-apple-macbook-computer-royalty-free-thumbnail.jpgjpg');">
+          </div>
+          <div class="slide"
+            style="background-image: url('https://external-preview.redd.it/eOkfRI9GRhCyBWGNz3BQzQ6h2vsdgViwNpyaQEytAyc.jpg?width=1080&crop=smart&auto=webp&s=c66cb2369bb5bb2fbb7db2eff94b7b55b817fa23');">
+          </div> -->
+
+        </div>
+      </div>
+      <div class="right_container">
+        <h2>Login To </h2>
+        <br/>
+        <h1 class="my-5">Eyebey-<span class="heading_active">Optics</span></h1>
+        <br/>
+        <p><i>"Eyebey: Streamlining Your Point of Sale, One Dashboard at a Time"</i></p>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('gesturestart', function (e) {
+        e.preventDefault();
+      });
+
+      document.addEventListener('gesturechange', function (e) {
+        e.preventDefault();
+      });
+
+      document.addEventListener('gestureend', function (e) {
+        e.preventDefault();
+      });
+
+    </script>
+    <script>
+      const slides = document.querySelectorAll('.slide');
+      let currentIndex = 0;
+
+      function showNextSlide() {
+        slides[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % slides.length;
+        slides[currentIndex].classList.add('active');
+      }
+
+      setInterval(showNextSlide, 5000);
+
+      // Initial display of the first slide
+      slides[currentIndex].classList.add('active');
+
+    </script>
+</body>
+
+</html>
