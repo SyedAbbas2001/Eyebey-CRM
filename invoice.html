@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta cha PKRet="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+      .other_container {
+        background-color: #fff;
+        width: 100%;
+        border-radius: 7px;
+        margin: 20px 0px 5px;
+        padding: 35px;
+        border: 1px solid rgb(228, 228, 228);
+        box-shadow: rgba(29, 29, 29, 0.1) 0px 4px 12px;
+      }
+
+      footer {
+        margin-bottom: -20px;
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      .home-section {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 30px 0px;
+      }
+
+      .blue {
+        color: #4153b3;
+      }
+
+      .red {
+        color: #e96565;
+      }
+
+      .justify_left {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .divider {
+        border-bottom: 1px solid rgb(193, 193, 193);
+        margin: 10px 0px;
+      }
+
+      .dash-cat-btn {
+        border: 2px solid rgb(39, 127, 181);
+        color:rgb(39, 127, 181);
+        padding: 6px 20px;
+        border-radius: 7px;
+        background-color: transparent;
+        transition: all 0.4s;
+      }
+
+      .dash-cat-btn:hover {
+        color: rgb(255, 255, 255);
+        background-color: rgb(39, 127, 181);
+        ;
+      }
+
+      .dashheading {
+        color: rgb(81, 102, 196);
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .table_content p {
+        margin-bottom: 0px !important;
+        line-height: 15px;
+        font-weight: 400;
+        margin-top: 7px;
+      }
+
+      .table_content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        flex-direction: column;
+        min-height: 60px;
+        padding: 5px 0px;
+      }
+
+      .recent_trip_table {
+        width: 100%;
+      }
+
+      .recent_trip_table th {
+        font-weight: 500;
+        border-bottom: none;
+        text-align: center;
+        padding: 15px !important;
+        background-color: #F7F9FC !important;
+        font-size: 18px;
+      }
+
+      .recent_trip_table tr {
+        padding: 10px 0px !important;
+      }
+
+      .pay_method_div {
+        border-top: 1px solid lightgray;
+        border-bottom: 1px solid lightgray;
+        padding: 15px 0px;
+      }
+
+      .pay_method_div p {
+        margin-bottom: 10px;
+        font-weight: 400;
+      }
+
+      .recent_trip_table tr p {
+        font-size: 16px;
+        margin-bottom: 0px;
+      }
+
+      .recent_trip_table {
+        line-height: 20px;
+      }
+
+      .invo-table .text-right {
+        text-align: right !important;
+      }
+
+      .live_activity h5 {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 0px;
+      }
+      
+    @media only screen and (max-width: 600px) {
+      .other_container{
+        padding: 20px;
+      }
+      .responsive {
+        overflow-x: auto;
+      }
+      .dashboard_pages{
+        padding: 8px;
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <section class="home-section">
+      <div class="dashboard_pages">
+        <div class="live_activity  row">
+          <div class="col-md-6 d-flex align-items-center justify-content-start">
+            <h5>Billing Details</h5>
+          </div>
+          <div class="  col-md-6 d-flex align-items-center justify-content-end">
+            <button class="dash-cat-btn mx-3" onclick="saveAsPDF()">Save as PDF</button>
+          <button class="dash-cat-btn  " onclick="printDiv()">
+                        PRINT
+                    </button> 
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="other_container" id="content">
+              <div class="d-flex justify-content-center align-items-center flex-column text-center my-3">
+                <h2>Eyebey Optics</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br /> Animi adipisicing elit </p>
+              </div>
+              <div class="live_activity" style="margin-top: -5px !important">
+                <span class="dashheading" style="font-size: 20px; font-weight: 500">Invoice # 100085</span>
+                <p class="my-3">Invoice Placed : 30-Dec-2023 06:52pm</p>
+                <div class="row pay_method_div">
+                  <div class="col-md-6">
+                    <p>
+                      <b>Name: <span class="blue"> Shabir</span>
+                      </b>
+                    </p>
+                    <p>
+                      <b>Email: <span class="blue"> Shabir@gmail.com</span>
+                      </b>
+                    </p>
+                    <p>
+                      <b>Amount : <span class="blue">3970.00 PKR</span>
+                      </b>
+                    </p>
+                  </div>
+                  <div class="col-md-6">
+                    <p>
+                      <b>Payment Method: <span class="blue"> Cash</span>
+                      </b>
+                    </p>
+                    <p>
+                      <b> Address : <span class="blue"> Ax, street 2 North Karachi</span>
+                      </b>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="responsive">
+               <table class="table recent_trip_table">
+                <br />
+                <tr class="table_header">
+                  <th class="center">Item</th>
+                  <th class="center">Price</th>
+                  <th class="center">Qty</th>
+                  <th class="center">Points</th>
+                  <th class="center">Discount</th>
+                  <th class="center">Total</th>
+                </tr>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="table_content">
+                        <p>Dell E-500 Laptop</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="table_content">
+                        <p>4000.00 PKR</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <div class="table_content">
+                          <p>1</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <div class="table_content">
+                          <p>100</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="table_content">
+                        <p>400.00 PKR</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="table_content">
+                        <p>3960.00 PKR</p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="table_content">
+                        <p>Dell E-500 Laptop</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="table_content">
+                        <p>4000.00 PKR</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <div class="table_content">
+                          <p>1</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <div class="table_content">
+                          <p>100</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="table_content">
+                        <p>400.00 PKR</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="table_content">
+                        <p>3960.00 PKR</p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="table_content">
+                        <p>Dell E-500 Laptop</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="table_content">
+                        <p>4000.00 PKR</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <div class="table_content">
+                          <p>1</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <div class="table_content">
+                          <p>100</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="table_content">
+                        <p>400.00 PKR</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="table_content">
+                        <p>3960.00 PKR</p>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>  
+              </div>
+             
+              <div class="row">
+                <div class="col justify_left">
+                  <div class="other_container" style="width: 433px;">
+                    <div class="row">
+                      <div class="col-md-6 d-flex justify-content-start align-items-center"> Sub Total (Vat Excluded) </div>
+                      <div class="col-md-6 d-flex justify-content-end align-items-center"> 4000.00 PKR </div>
+                      <div class="col-md-6 d-flex justify-content-start align-items-center"> Discount </div>
+                      <div class="col-md-6 d-flex justify-content-end align-items-center"> - 400.00 PKR </div>
+                      <div class="col-md-6 d-flex justify-content-start align-items-center"> Coupon Discount </div>
+                      <div class="col-md-6 d-flex justify-content-end align-items-center"> 0.00 PKR </div>
+                      <div class="col-md-6 d-flex justify-content-start align-items-center"> Campaign Discount </div>
+                      <div class="col-md-6 d-flex justify-content-end align-items-center"> 0.00 PKR </div>
+                      <div class="col-md-6 d-flex justify-content-start align-items-center"> Vat / Tax </div>
+                      <div class="col-md-6 d-flex justify-content-end align-items-center"> + 360.00 PKR </div>
+                      <div class="col-md-6 d-flex justify-content-start align-items-center"> Service Fee </div>
+                      <div class="col-md-6 d-flex justify-content-end align-items-center"> 60.00 PKR </div>
+                      <div class="divider"></div>
+                      <div class="col-md-6 d-flex justify-content-start align-items-center">
+                        <b>Grand Total </b>
+                      </div>
+                      <div class="col-md-6 d-flex justify-content-end align-items-center">
+                        <b>4000.00 PKR </b>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <footer>
+                <p>&copy; 2024 Eyebey. All rights reserved.</p>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      function printDiv() {
+          var content = document.getElementById("content").innerHTML;
+          var originalContents = document.body.innerHTML;
+
+          // Temporarily modify the body content to the content of the div
+          document.body.innerHTML = content;
+          window.print();
+
+          // Restore the original body content
+          document.body.innerHTML = originalContents;
+      }
+
+      function saveAsPDF() {
+          const { jsPDF } = window.jspdf;
+          const doc = new jsPDF();
+
+          // Use html2canvas to capture the div
+          html2canvas(document.getElementById("content")).then(canvas => {
+              const imgData = canvas.toDataURL("image/png");
+              const imgWidth = 190; // A4 width in mm (approx)
+              const imgHeight = (canvas.height * imgWidth) / canvas.width; // Maintain aspect ratio
+
+              doc.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
+              doc.save("document.pdf");
+          });
+      }
+
+     
+  </script>
+  </body>
+</html>
