@@ -363,10 +363,10 @@
             <span>Contact</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="index.html">
+        <li class="nav-item  w-100"  >
+          <a class="nav-link collapsed" id="logoutBtn">
             <i class="bi bi-box-arrow-in-right"></i>
-            <span>Login</span>
+            <span>Logout</span>
           </a>
         </li><!-- End Login Page Nav -->
   
@@ -549,6 +549,21 @@
       }
 
      
+  </script>
+  <script>
+    // Define the logout function
+    function logout() {
+      // Clear any stored login data
+      localStorage.removeItem('loggedInUser');
+      localStorage.removeItem('attemptedEmail');
+      localStorage.removeItem('attemptedPassword');
+      
+      // Redirect the user back to the login page
+      window.location.href = "index.html";  // Adjust this path as needed
+    }
+  
+    // Attach the logout function to the button click event
+    document.getElementById('logoutBtn').addEventListener('click', logout);
   </script>
   </body>
 </html>
