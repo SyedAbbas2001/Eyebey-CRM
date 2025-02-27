@@ -1386,7 +1386,7 @@ opacity: 1;
 .main-right {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   width: 75%;
-  background: url(https://wallpapers.com/images/featured/laptop-murjp1nk4lp1idlt.jpg);
+  background: url(../img/frame.webp);
   background-repeat: none;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -1810,6 +1810,9 @@ width: 100%;
     display: none;
    }
 }
+ .form-check-label{
+  font-size: 18px;
+ }
 a{
   text-decoration: none !important;
 }
